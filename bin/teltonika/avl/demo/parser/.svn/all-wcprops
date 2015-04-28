@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser
+END
+RfidElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/RfidElement.java
+END
+BitInputStream.class
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/BitInputStream.class
+END
+BitOutputStream.class
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/BitOutputStream.class
+END
+AvlData.class
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/AvlData.class
+END
+LongIOElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/LongIOElement.java
+END
+GpsElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/GpsElement.java
+END
+IOElement.class
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/IOElement.class
+END
+AvlDataFM4.class
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/AvlDataFM4.class
+END
+BitInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/BitInputStream.java
+END
+BitOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/BitOutputStream.java
+END
+AvlData.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/AvlData.java
+END
+CodecStore.class
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/CodecStore.class
+END
+AvlDataGH.class
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/AvlDataGH.class
+END
+CodecException.class
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/CodecException.class
+END
+IOElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/IOElement.java
+END
+AvlDataFM4.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/AvlDataFM4.java
+END
+LongIOElement.class
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/LongIOElement.class
+END
+GpsElement.class
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/GpsElement.class
+END
+AvlDataParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/AvlDataParser.java
+END
+CodecStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/CodecStore.java
+END
+AvlDataGH.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/AvlDataGH.java
+END
+CodecException.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/2/trunk/data/teltonika_1556/avl/demo/parser/CodecException.java
+END
