@@ -36,7 +36,6 @@ public class Listener {
 		System.out.println("Listening on TCP port " + port);
 
 		while (true) {
-
 			Socket sock = serverSocket.accept();
 			new Thread(new ModuleHandler(sock, connextionRedis.getPool())).start();
 

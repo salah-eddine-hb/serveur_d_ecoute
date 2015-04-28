@@ -13,11 +13,9 @@ public class ConnectionRedis {
 
 	private JedisPoolConfig jedisPoolConfig;
 	private JedisCluster jedisCluster;
+	
 	private Set<HostAndPort> jedisClusterNodes;
-
 	private Map<String, JedisPool> nodeMap;
-
-	// private List<JedisPool> nodePoolList;
 
 	public ConnectionRedis(int connectionNumber) {
 
@@ -41,11 +39,6 @@ public class ConnectionRedis {
 				+ jedisCluster.getClusterNodes().size() + " nodes en cluster");
 
 		nodeMap = jedisCluster.getClusterNodes();
-
-		/*
-		 * nodePoolList = new ArrayList<JedisPool>(nodeMap.values());
-		 * Collections.shuffle(nodePoolList);
-		 */
 
 	}
 

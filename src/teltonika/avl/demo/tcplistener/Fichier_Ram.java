@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Vector;
 
@@ -22,7 +21,6 @@ public class Fichier_Ram implements Runnable {
 	private long timestamp;
 
 	private static Vector<Map<String, String>> donnees;
-	//private Iterator<Map<String, String>> iterateur;
 	private static int index;
 
 	private Jedis jedis;
@@ -45,39 +43,27 @@ public class Fichier_Ram implements Runnable {
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
 			public void run() {
-
 				System.out.println("CTR-C Intercepte.");
 
 				if (bw != null) {
-
 					System.out.println("Fermeture fichier : FichierRam");
 					try {
-
 						bw.close();
-
 					} catch (IOException e) {
-
 						e.printStackTrace();
 					}
-
 				}
 				if (Fichier_Log.oWriter != null) {
-
 					System.out.println("Fermeture fichier : FichierLog");
 					Fichier_Log.CloseLogFile();
-
 				}
-
 			}
 		});
 
 		// Interception de Ctr^Z (Flushing Data ...)
 		Signal.handle(new Signal("TSTP"), new SignalHandler() {
-
 			public void handle(Signal sig) {
-
 				System.out.println("CTR-Z Intercepte Flushing Data ...");
-
 				donnees.removeAllElements();
 			}
 		});
@@ -89,13 +75,11 @@ public class Fichier_Ram implements Runnable {
 	}
 
 	public void run() {
-
 		jedis = jedisPool.getResource();
 
 		while (true) {
 
 			if (date_current <= System.currentTimeMillis() - Listener.time) {
-
 				try {
 					timestamp = System.currentTimeMillis();
 					date = new SimpleDateFormat("yyyyddMM_HHmmss")
@@ -128,25 +112,19 @@ public class Fichier_Ram implements Runnable {
 								enregistrement += e.getKey() + ":"
 										+ e.getValue() + "\t";
 
-							
 							bw.write(enregistrement);
 							bw.newLine();
-
 						}
 					donnees.removeAllElements();
 					index =0;
 					bw.close();
 
 				} catch (IOException e) {
-
 					e.printStackTrace();
 				}
 
 				date_current = System.currentTimeMillis();
 			}
-
 		}
-
 	}
-
 }

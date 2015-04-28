@@ -38,20 +38,16 @@ public class ModuleHandler implements Runnable {
 	public static String dernier_fichier;
 
 	public ModuleHandler(Socket sock, JedisPool jedisPool) {
-
 		this.jedisPool = jedisPool;
 		this.moduleSocket = sock;
-
 	}
 
 	public void formatage(String strAvlDonnees) {
 
 		donnees = new HashMap<String, String>(20);
-
 		champ = strAvlDonnees.split(",");
 
 		donnees.put("imei", imei);
-
 		donnees.put("ip_source", moduleSocket.getInetAddress().getHostAddress());
 
 		donnees.put("longitude", champ[0]);
@@ -68,14 +64,12 @@ public class ModuleHandler implements Runnable {
 			CleValeur = ClVal[i].split("=");
 			donnees.put(CleValeur[0], CleValeur[1]);
 		}
-
 		donnees.put("timestamp", champ[7].replaceAll("#", ""));
 		donnees.put("date", new SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
 				.format(new Date(System.currentTimeMillis())));
 	}
 
 	public void updateRedis() {
-
 		timestampRecut = Long.parseLong(champ[7].replaceAll("#", ""), 10);
 
 		System.out.println("Je suis le Thread : "
@@ -89,10 +83,9 @@ public class ModuleHandler implements Runnable {
 		System.out
 				.println("Le nombre de ressource Disponible dans le Pool est : "
 						+ (10 - jedisPool.getNumActive()));
-		
+
 		try{
-			timestampExist =  Long.parseLong(jedis.hget(imei, "timestamp"));
-			
+			timestampExist =  Long.parseLong(jedis.hget(imei, "timestamp"));			
 			if (timestampExist < timestampRecut)
 				jedis.hmset(imei, donnees);
 		}
@@ -101,18 +94,10 @@ public class ModuleHandler implements Runnable {
 			jedis.hmset(imei, donnees);
 		}
 		
-		/*
-		if (jedis.hget(imei, "timestamp") != null)
-			timestampExist = Long.parseLong(jedis.hget(imei, "timestamp"));
-
-		if (timestampExist < timestampRecut)
-			jedis.hmset(imei, donnees);
-		*/
 		jedisPool.returnResource(jedis);
 	}
 
 	public void publish() throws Exception {
-
 		jedis = jedisPool.getResource();
 
 		data = "{\'port\':\'" + moduleSocket.getPort();
@@ -121,7 +106,6 @@ public class ModuleHandler implements Runnable {
 		data += "}";
 
 		jedis.publish(imei, data);
-
 		Listener.time = Integer.parseInt(jedis.get("duree")) * 1000;
 	}
 
@@ -155,10 +139,10 @@ public class ModuleHandler implements Runnable {
 
 					break;
 				}
-
+				
 				AvlData decoder = CodecStore.getInstance().getSuitableCodec(
 						packet);
-
+				
 				if (decoder == null) {
 					System.out.println("Unknown packet format: "
 							+ Tools.bufferToHex(packet));
@@ -166,14 +150,11 @@ public class ModuleHandler implements Runnable {
 
 				} else {
 					System.out.println("Codec found: " + decoder);
-
 					AvlData[] decoded = decoder.decode(packet);
-
 					System.out.println(new Date().toLocaleString()
 							+ ": Received records:" + decoded.length);
 
 					for (AvlData avlData : decoded) {
-
 						liveData = "@" + imei + "," + avlData;
 
 						System.out.println("@" + imei + "," + avlData);
@@ -187,13 +168,9 @@ public class ModuleHandler implements Runnable {
 									InsersionRam();
 
 						System.out.println("Data " + liveData);
-
 						new writeToFileClass().readData(liveData, imei);
-
 					}
-
 					dos.writeInt(decoded.length);
-
 				}
 			}
 			if(Listener.debug == 1){
@@ -201,7 +178,6 @@ public class ModuleHandler implements Runnable {
 				// Fichier_Log.appendContents("../log/serveur_d_ecoute_log",log);
 			}
 		} catch (EOFException ee) {
-
 			System.out.println("Closed connection:" + moduleSocket);
 
 		} catch (Exception e) {
